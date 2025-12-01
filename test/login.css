@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  background-color: rgb(#fdfdfd);
+}
+
+p {
+  margin: 0;
+}
+
+.main-box {
+  width: 900px;
+  height: 330px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo-img img{
+  width: 400px;
+  margin-top: 20px;
+}
+
+.input-form {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.input-form-box {
+  height: 85px;
+  color: #5E5858;
+  position: relative;
+  
+}
+
+.input {
+  width: 500px;
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid #000000;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #C0C0C0;
+}
+
+.info-check {
+  width: 500px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+
+}
+
+.not-in {
+  flex-grow: 2;
+}
+
+.info-text {
+  font-size: 13px;
+  color: #767676;
+  position: relative;
+  bottom: 5px;
+}
+
+
+.inv {
+  border: none;
+  width: 19px;
+  height: 19px;
+  position: absolute;
+  right: 19px;
+  bottom: 24px;
+  background-repeat: no-repeat;
+  background-position: 0px -3px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.eyes {
+  background-image: url('eyeon.png');
+    background-size: 18px;
+}
+
+.eyes-slash {
+  background-image: url('eyeclose.png');
+    background-size: 16px;
+      background-position: 1px -2px;
+}
+
+.btn {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 37px;
+  right: 18px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-color: #fdfdfd;
+  border: none;
+}
+
+
+.login-button{
+  width: 220px;
+  padding: 10px;
+  font-size: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #125EFD;
+  border: none;
+  transition: all .3s ease;
+  transform: scale(1);
+}
+
+
+.login-button:hover {
+  background-color: #1EA0FF;
+  transform: scale(0.97);
+}
+
+.info-checkbox {
+  appearance: none;
+  background-clip: content-box;
+  box-sizing: border-box;
+  padding: 2px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgb(168, 168, 168);
+  transition: all .3s ease;
+  border-radius: 20px;
+  margin-left: 10px;
+  position: relative;
+  bottom: 7px;
+}
+
+.info-checkbox:hover {
+  border: 2px solid rgb(86, 86, 86)
+}
+
+.info-checkbox:checked {
+  background-color: #0B29C5;
+}
