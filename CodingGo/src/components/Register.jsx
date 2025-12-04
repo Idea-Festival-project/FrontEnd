@@ -7,12 +7,8 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [passwordToggle, setPasswordToggle] = useState('password')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
-  const [PasswordConfirmToggle, setPasswordConfirmToggle] = useState('password')
-  const [gender, setGender] = useState('none')
-
 
   const changeEmail = (e) => {
     setEmail(e.target.value)
@@ -22,45 +18,38 @@ function Register() {
     setPassword(e.target.value)
   }
 
-  const showPasswordChange = (e) => {
+  const showPasswordChange = () => {
     setShowPassword(prev => !prev)
-    setPasswordToggle(passwordToggle == 'password' ? 'text' : 'password')
   }
 
   const changePasswordConfirm = (e) => {
     setPasswordConfirm(e.target.value)
-  }  
-
-  const showPasswordConfirmChange = (e) => {
-    setShowPasswordConfirm(prev => !prev)
-    setPasswordConfirmToggle(PasswordConfirmToggle == 'password' ? 'text' : 'password')
   }
 
-    const selectGender = (selectedGender) => {
-    setGender(selectedGender)
-    console.log(selectedGender)
-    }
+  const showPasswordConfirmChange = () => {
+    setShowPasswordConfirm(prev => !prev)
+  }
 
   return (
-      <div className={styles.MainBox}>
-        <div className={styles.LogoBox}>
-          <img src={Logo}/>
-        </div>
-        <div className={styles.InputBox}>
+    <div className={styles.MainBox}>
+      <div className={styles.LogoBox}>
+        <img src={Logo}/>
+      </div>
+      <div className={styles.InputBox}>
 
-          <div className={styles.InputBoxItem}>
-            <p>이메일</p>
-            <input 
-            type='text' 
-            placeholder='이메일을 입력해주세요.' 
-            value={email}
-            onChange={changeEmail} />
-          </div>
+        <div className={styles.InputBoxItem}>
+          <p>이메일</p>
+          <input 
+          type='text' 
+          placeholder='이메일을 입력해주세요.' 
+          value={email}
+          onChange={changeEmail} />
+        </div>
 
         <div className={styles.InputBoxItem}>
           <p>비밀번호</p>
           <input 
-          type={passwordToggle} 
+          type={showPassword ? 'text' : 'password'} 
           placeholder='비밀번호를 입력해주세요' 
           value={password}
           onChange={changePassword} />
@@ -72,11 +61,10 @@ function Register() {
           </button>
         </div>
 
-
         <div className={styles.InputBoxItem}>
           <p>비밀번호 확인</p>
           <input 
-          type={PasswordConfirmToggle} 
+          type={showPasswordConfirm ? 'text' : 'password'} 
           placeholder='비밀번호를 다시 입력해주세요' 
           value={passwordConfirm}
           onChange={changePasswordConfirm} />
@@ -88,17 +76,17 @@ function Register() {
           </button>
         </div>
 
-        </div>
-        <div className={styles.MainFooter}>
-          <button
-          type='button'
-          className={styles.MainFooterBtn}>
-          다음
-          </button>
-          <div className={styles.MainFooterB}>
-          </div>
+      </div>
+      <div className={styles.MainFooter}>
+        <button
+        type='button'
+        className={styles.MainFooterBtn}>
+        다음
+        </button>
+        <div className={styles.MainFooterB}>
         </div>
       </div>
+    </div>
   )
 }
 

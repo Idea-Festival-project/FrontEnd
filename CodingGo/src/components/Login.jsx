@@ -7,7 +7,6 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [passwordToggle, setPasswordToggle] = useState('password')
 
   const changeEmail = (e) => {
     setEmail(e.target.value)
@@ -19,7 +18,6 @@ function Login() {
 
   const showPasswordChange = (e) => {
     setShowPassword(prev => !prev)
-    setPasswordToggle(passwordToggle == 'password' ? 'text' : 'password')
   }
 
   return (
@@ -41,7 +39,7 @@ function Login() {
         <div className={styles.InputBoxItem}>
           <p>비밀번호</p>
           <input 
-          type={passwordToggle} 
+          type={showPassword ? 'text' : 'password'} 
           placeholder='비밀번호를 입력해주세요' 
           value={password}
           onChange={changePassword} />
