@@ -112,12 +112,12 @@
   margin-right: 5px;
 }
 
-.MainFooterTextGroup {
+/* .MainFooterTextGroup {
   margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .NotIn {
   flex-grow: 2;

@@ -8,6 +8,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
+
   const changeEmail = (e) => {
     setEmail(e.target.value)
   }
@@ -59,11 +60,11 @@ function Login() {
           확인
           </button>
           <div className={styles.MainFooterB}>
-            <div className={styles.MainFooterTextGroup}>
+            {/* <div className={styles.MainFooterTextGroup}>
               <p>회원가입을 아직 하지 않으셨나요?</p>
               <p>|</p>
               <p><a>회원가입</a></p>  
-            </div>
+            </div> */}
             <div className={styles.NotIn}></div>
           </div>
         </div>
