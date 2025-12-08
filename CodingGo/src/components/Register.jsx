@@ -84,6 +84,12 @@ function Register() {
         다음
         </button>
         <div className={styles.MainFooterB}>
+            <div className={styles.MainFooterTextGroup}>
+              <p>이미 로그인 되어있는 계정이 있으신가요?</p>
+              <p>|</p>
+              <p><a>로그인</a></p>  
+            </div>
+            <div className={styles.NotIn}></div>
         </div>
       </div>
     </div>
