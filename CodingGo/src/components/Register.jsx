@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Register.module.css'
 import Logo from '../assets/CodingGo-logo.png'
@@ -87,7 +88,7 @@ function Register() {
             <div className={styles.MainFooterTextGroup}>
               <p>이미 로그인 되어있는 계정이 있으신가요?</p>
               <p>|</p>
-              <p><a>로그인</a></p>  
+              <Link to='/login' className={styles.Link}>로그인</Link>  
             </div>
             <div className={styles.NotIn}></div>
         </div>
