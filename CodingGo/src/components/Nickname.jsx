@@ -2,9 +2,9 @@ import { useState } from 'react'
 import styles from './Nickname.module.css'
 import Logo from '../assets/CodingGo-logo.png'
 
-function Register() {
+function Nickname() {
   const [userId, setUserId] = useState('')
-  const [isDuplication, setIsDuplication] = useState(false)
+  // const [isDuplication, setIsDuplication] = useState(false)
 
   const changeUserId = (e) => {
     setUserId(e.target.value)
@@ -49,4 +49,4 @@ function Register() {
   )
 }
 
-export default Register
+export default Nickname
