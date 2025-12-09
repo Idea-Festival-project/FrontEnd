@@ -86,7 +86,7 @@ function Register() {
         </button>
         <div className={styles.MainFooterB}>
             <div className={styles.MainFooterTextGroup}>
-              <p>이미 로그인 되어있는 계정이 있으신가요?</p>
+              <p>이미 회원가입 한 계정이 있으신가요?</p>
               <p>|</p>
               <Link to='/login' className={styles.Link}>로그인</Link>  
             </div>
