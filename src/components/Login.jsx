@@ -9,6 +9,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
+
   const changeEmail = (e) => {
     setEmail(e.target.value)
   }
@@ -17,7 +18,7 @@ function Login() {
     setPassword(e.target.value)
   }
 
-  const showPasswordChange = (e) => {
+  const showPasswordChange = () => {
     setShowPassword(prev => !prev)
   }
 
