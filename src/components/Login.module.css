@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-weight: 700;
 }
 
 .LogoBox {
@@ -33,7 +34,6 @@
   gap: 10px;
   box-sizing: border-box;
   padding-bottom: 50px;
-  font-weight: 500;
 }
 
 .InputBox input {
@@ -71,6 +71,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .MainFooter {
@@ -93,8 +94,7 @@
   border-radius: 8px;
   outline: none;
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 40px;
+  cursor: pointer;
 }
 
 .MainFooterB {
@@ -112,13 +112,19 @@
   margin-right: 5px;
 }
 
-/* .MainFooterTextGroup {
+.MainFooterTextGroup {
   margin-top: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
 .NotIn {
   flex-grow: 2;
+}
+
+.Link {
+  text-decoration: none;
+  font-size: 12px;
+  color: rgb(120, 120, 120);
 }
