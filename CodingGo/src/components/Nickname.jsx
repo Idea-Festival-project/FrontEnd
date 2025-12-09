@@ -4,15 +4,10 @@ import Logo from '../assets/CodingGo-logo.png'
 
 function Nickname() {
   const [userId, setUserId] = useState('')
-  // const [isDuplication, setIsDuplication] = useState(false)
 
   const changeUserId = (e) => {
     setUserId(e.target.value)
   }
-
-  // const usernameDuplication = () => {
-    
-  // }
 
   return (
     <div className={styles.MainBox}>
@@ -30,9 +25,8 @@ function Nickname() {
           onChange={changeUserId} />
           <button
           type='button'
-          className={styles.IsDuplicationBtn}
-          //onClick={usernameDuplication}
-          >중복 확인
+          className={styles.IsDuplicationBtn}>
+            중복 확인
           </button>
         </div>
 
