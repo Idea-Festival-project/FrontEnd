@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Register.module.css'
 import Logo from '../assets/CodingGo-logo.png'
@@ -10,6 +10,8 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false)
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false)
+
+  const navigate = useNavigate()
 
   const changeEmail = (e) => {
     setEmail(e.target.value)
@@ -29,6 +31,10 @@ function Register() {
 
   const showPasswordConfirmChange = () => {
     setShowPasswordConfirm(prev => !prev)
+  }
+
+  const handleNext = (e) => {
+    navigate('/nickname')
   }
 
   return (
@@ -81,7 +87,8 @@ function Register() {
       <div className={styles.MainFooter}>
         <button
         type='button'
-        className={styles.MainFooterBtn}>
+        className={styles.MainFooterBtn}
+        onClick={handleNext}>
         다음
         </button>
         <div className={styles.MainFooterB}>
