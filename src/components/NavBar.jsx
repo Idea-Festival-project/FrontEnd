@@ -40,7 +40,7 @@ function NavBar() {
 
         <div className={styles.NavTab}>
           <NavLink 
-            to='/main'
+            to='/home'
             className={({ isActive }) => 
               isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
             }>

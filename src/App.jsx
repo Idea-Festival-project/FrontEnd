@@ -3,7 +3,9 @@ import './App.css'
 import Login from './components/Login'
 import Register from './components/Register'
 import Nickname from './components/Nickname'
-import NavBar from './components/NavBar'
+import MainLayout from './components/MainLayout'
+import Community from './components/Community'
+import Home from './components/Home'
 
 function App() {
   return (
@@ -13,7 +15,11 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
       <Route path='/nickname' element={<Nickname />} />
-      <Route path='/main' element={<NavBar />} />
+
+      <Route element={<MainLayout />}>
+        <Route path='/home' element={<Home />} />
+        <Route path='/community' element={<Community />} />
+      </Route>
     </Routes>
   )
 }
