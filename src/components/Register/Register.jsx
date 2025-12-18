@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Register.module.css'
-import Logo from '../assets/CodingGo-logo.png'
+import Logo from '../../assets/CodingGo-logo.png'
 
 function Register() {
   const [email, setEmail] = useState('')

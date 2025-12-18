@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
-import Login from './components/Login'
-import Register from './components/Register'
-import Nickname from './components/Nickname'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
+import Nickname from './components/Nickname/Nickname'
 import MainLayout from './components/MainLayout'
-import Community from './components/Community'
-import Home from './components/Home'
+import Community from './components/Community/Community'
+import Home from './components/Home/Home'
 
 function App() {
   return (

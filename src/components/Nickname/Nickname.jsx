@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './Nickname.module.css'
-import Logo from '../assets/CodingGo-logo.png'
+import Logo from '../../assets/CodingGo-logo.png'
 
 function Nickname() {
   const [userId, setUserId] = useState('')

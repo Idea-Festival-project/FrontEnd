@@ -1,6 +1,6 @@
 import styles from './NavBar.module.css'
 import { NavLink } from 'react-router-dom'
-import Logo from '../assets/CodingGo-logo.png'
+import Logo from '../../assets/CodingGo-logo.png'
 import { RiHomeFill } from "react-icons/ri";
 import { RiHomeLine } from "react-icons/ri";
 import { BsPeople } from "react-icons/bs";
@@ -11,6 +11,7 @@ import { BiTrophy } from "react-icons/bi";
 import { BiSolidTrophy } from "react-icons/bi";
 import { RiUser3Line } from "react-icons/ri";
 import { RiUser3Fill } from "react-icons/ri";
+import { RxExit } from "react-icons/rx";
 
 function NavBar() {
 
@@ -31,11 +32,7 @@ function NavBar() {
               <h5>연속 학습일</h5>
               <h3 style={{color : 'red'}}>{}일</h3>             
             </div>
-
           </div>
-
-
-          
         </div> */}
 
         <div className={styles.NavTab}>
@@ -134,10 +131,15 @@ function NavBar() {
             
           </NavLink>
         </div>
-
-        <div className={styles.Atti}>
-
-        </div>
+          <div className={styles.NavBarFooter}>
+            <div className={styles.FooterLayout}>
+              <div className={styles.FooterGroupBox}>
+                <p>로그아웃 하기</p>
+                <RxExit size={25}/>            
+              </div>            
+            </div>
+  
+          </div>        
       </div>
   )
 }

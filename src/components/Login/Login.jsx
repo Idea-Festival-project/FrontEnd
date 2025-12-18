@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Login.module.css'
-import Logo from '../assets/CodingGo-logo.png'
+import Logo from '../../assets/CodingGo-logo.png'
 
 function Login() {
   const [email, setEmail] = useState('')
