@@ -3,14 +3,49 @@ import styles from './Home.module.css'
 import { LuTarget } from "react-icons/lu";
 import { BiTrophy } from "react-icons/bi";
 import { FaArrowTrendUp } from "react-icons/fa6";
+import { FaRegCalendar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa6";
 
 function Home() {
   const [username, setUsername] = useState('류수연')
   const todaySolvedGoals = 3
-  const [todaySolved, setTodaySolved] = useState(0)
+  const [todaySolved, setTodaySolved] = useState(2)
   const progress = Math.floor(todaySolved / todaySolvedGoals * 100)
   const totalSolved = 0
   const totalCorrectRate = 0
+  const [todayRecommendProblems, setTodayRecommendProblems] = useState([
+    {
+      title : '두 수의 합 구하기',
+      difficulty : 'easy',
+      point : 100,
+    },
+    {
+      title : '이진 트리 구현하기',
+      difficulty : 'medium',
+      point : 500,
+    }
+  ])
+  
+  const difficultyMap = {
+    easy : '쉬움',
+    medium : '보통',
+    hard : '어려움',
+  }
+
+const difficultyStyleMap = {
+  easy: {
+    backgroundColor: 'rgb(193, 255, 192)',
+    color: 'rgb(3, 187, 0)',
+  },
+  medium: {
+    backgroundColor: 'rgb(255, 243, 205)',
+    color: 'rgb(202, 138, 4)',
+  },
+  hard: {
+    backgroundColor: 'rgb(254, 226, 226)',
+    color: 'rgb(220, 38, 38)',
+  },
+}
 
 
   return(
@@ -64,6 +99,37 @@ function Home() {
         </div>
       </div>
       
+      <div className={styles.TodayRecommendProblemCard}>
+        <div className={styles.TodayRecommendProblemTextBox}>
+          <FaRegCalendar size={25} />
+          <h3>오늘의 추천 문제</h3>
+        </div>
+        <div style={{height : '25%'}} />
+        <div className={styles.TodayRecommendProblemGroup}>
+          {todayRecommendProblems.map((problem) => (
+            <div className={styles.TodayRecommendProblemsBox}>
+              <div
+                key={problem.title}
+                className={styles.TodayRecommendProblemItem}
+              >
+                <div className={styles.ProblemInfo}>
+                  <h3>{problem.title}</h3>
+                  <div className={styles.DifficultyBox} style={difficultyStyleMap[problem.difficulty]}>
+                    <p>
+                      {difficultyMap[problem.difficulty] ?? '난이도를 불러오지 못 했어요'}
+                    </p>                    
+                  </div>
+                </div>
+                <div className={styles.PointBox}>
+                  <FaStar size={25}/>
+                  <p>{problem.point}</p>
+                </div>
+              </div>
+            </div>
+          ))}        
+        </div>
+
+      </div>
     </div>
   )
 }

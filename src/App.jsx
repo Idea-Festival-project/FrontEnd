@@ -6,6 +6,10 @@ import Nickname from './components/Nickname/Nickname'
 import MainLayout from './components/MainLayout'
 import Community from './components/Community/Community'
 import Home from './components/Home/Home'
+import Problems from './components/Problems/Problems'
+import Ranking from './components/Ranking/Ranking'
+import MyPage from './components/Mypage/Mypage'
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path='/home' element={<Home />} />
         <Route path='/community' element={<Community />} />
+        <Route path='/problems' element={<Problems />} />
+        <Route path='/ranking' element={<Ranking />} />
+        <Route path='/MyPage' element={<MyPage />} />
       </Route>
     </Routes>
   )

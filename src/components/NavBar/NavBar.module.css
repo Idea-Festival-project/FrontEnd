@@ -156,5 +156,5 @@
 }
 
 .FooterLayout:hover .FooterGroupBox {
-  transform: translateX(5px);
+  transform: translateX(2px);
 }

@@ -56,25 +56,6 @@ function NavBar() {
           </NavLink>
 
           <NavLink 
-            to='/community'
-            className={({ isActive }) => 
-              isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
-            }>
-              
-            {({ isActive }) => (
-              <>
-                {isActive ? (
-                  <BsFillPeopleFill size={25} className={styles.TabIcons} />
-                ) : (
-                  <BsPeople size={25} className={styles.TabIcons} />
-                )}
-                <p>커뮤니티</p>
-              </>
-            )}
-            
-          </NavLink>
-
-          <NavLink 
             to='/problems'
             className={({ isActive }) => 
               isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
@@ -88,6 +69,25 @@ function NavBar() {
                   <IoCodeSharp size={25} className={styles.TabIcons} />
                 )}
                 <p>문제</p>
+              </>
+            )}
+            
+          </NavLink>
+
+          <NavLink 
+            to='/community'
+            className={({ isActive }) => 
+              isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
+            }>
+              
+            {({ isActive }) => (
+              <>
+                {isActive ? (
+                  <BsFillPeopleFill size={25} className={styles.TabIcons} />
+                ) : (
+                  <BsPeople size={25} className={styles.TabIcons} />
+                )}
+                <p>질문 게시판</p>
               </>
             )}
             
@@ -134,7 +134,7 @@ function NavBar() {
           <div className={styles.NavBarFooter}>
             <div className={styles.FooterLayout}>
               <div className={styles.FooterGroupBox}>
-                <p>로그아웃 하기</p>
+                <p>로그아웃</p>
                 <RxExit size={25}/>            
               </div>            
             </div>

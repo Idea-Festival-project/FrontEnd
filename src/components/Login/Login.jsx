@@ -1,14 +1,28 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Login.module.css'
 import Logo from '../../assets/CodingGo-logo.png'
+import axios from 'axios'
 
 function Login() {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [errMessage, setErrMessage] = useState('비밀번호가 맞지 않는 것 같아요')
 
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post('login', {
+        email: `${email}`,
+        password: `${password}`,
+      });
+    } catch (err) {
+
+    }
+  }
 
   const changeEmail = (e) => {
     setEmail(e.target.value)
@@ -22,17 +36,27 @@ function Login() {
     setShowPassword(prev => !prev)
   }
 
+  const loginSuccess = (e) => {
+    e.preventDefault()
+    if(email === 's25052@gsm.hs.kr' && password === 'abcdefg'){
+      navigate('/home')
+    } else{
+      alert('무언가 오류가 났어요 ㅋ')
+    }
+    
+  }
+
   return (
-      <div className={styles.MainBox}>
+      <form className={styles.MainBox} onSubmit={loginSuccess}>
         <div className={styles.LogoBox}>
-          <img src={Logo}/>
+          <img src={Logo} alt='CodingGo 로고'/>
         </div>
         <div className={styles.InputBox}>
 
           <div className={styles.InputBoxItem}>
             <p>이메일</p>
             <input 
-            type='text' 
+            type='email' 
             placeholder='이메일을 입력해주세요.' 
             value={email}
             onChange={changeEmail} />
@@ -55,11 +79,12 @@ function Login() {
 
         </div>
         <div className={styles.MainFooter}>
-          <button
-          type='button'
-          className={styles.MainFooterBtn}>
-          다음
-          </button>
+            <button
+            type='submit'
+            className={styles.MainFooterBtn}
+            >
+            다음
+            </button>  
           <div className={styles.MainFooterB}>
             <div className={styles.MainFooterTextGroup}>
               <p>회원가입을 아직 하지 않으셨나요?</p>
@@ -69,7 +94,7 @@ function Login() {
             <div className={styles.NotIn}></div>
           </div>
         </div>
-      </div>
+      </form>
   )
 }
 
