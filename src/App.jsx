@@ -1,17 +1,13 @@
-import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 import './App.css'
-import Login from './components/Login'
-import Register from './components/Register'
-import Nickname from './components/Nickname'
+// import Login from './components/login' // 임시 코드
+import Register from './components/Register' // 임시 코드
 
 function App() {
   return (
-    
-    <Routes >
-      <Route path='/login' element={<Login />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/nickname' element={<Nickname />} />
-    </Routes>
+    <>
+      <Register />
+    </>
   )
 }
 

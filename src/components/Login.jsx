@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import styles from './Login.module.css'
 import Logo from '../assets/CodingGo-logo.png'
@@ -58,14 +57,14 @@ function Login() {
           <button
           type='button'
           className={styles.MainFooterBtn}>
-          다음
+          확인
           </button>
           <div className={styles.MainFooterB}>
-            <div className={styles.MainFooterTextGroup}>
+            {/* <div className={styles.MainFooterTextGroup}>
               <p>회원가입을 아직 하지 않으셨나요?</p>
               <p>|</p>
-              <Link to='/register' className={styles.Link}>회원가입</Link>  
-            </div>
+              <p><a>회원가입</a></p>  
+            </div> */}
             <div className={styles.NotIn}></div>
           </div>
         </div>
