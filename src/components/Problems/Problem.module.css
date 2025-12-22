@@ -1,0 +1,130 @@
+.problemsPage {
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-left: 290px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.problemsTitle {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.problemsDesc {
+  color: #8b8b8b;
+  margin-bottom: 32px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.filterBtn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #e5e5e5;
+  background-color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filterBtn.active {
+  background-color: #e9cc63;
+  border: none;
+  font-weight: 600;
+}
+
+.problemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 28px 32px;
+  margin-bottom: 24px;
+
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.problemLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.problemTitle {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.problemTags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tag.easy {
+  background-color: #e6f8ea;
+  color: #2e8b57;
+}
+
+.tag.category {
+  background-color: #e7efff;
+  color: #4169e1;
+}
+
+.time {
+  font-size: 13px;
+  color: #777;
+}
+
+.score {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #f0b400;
+}
+
+.problemRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.solveBtn {
+  padding: 12px 22px;
+  border-radius: 16px;
+  background-color: #e9cc63;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.solvedIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #4caf50;
+  color: #4caf50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}

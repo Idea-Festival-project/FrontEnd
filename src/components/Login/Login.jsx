@@ -11,16 +11,27 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const [errMessage, setErrMessage] = useState('비밀번호가 맞지 않는 것 같아요')
+  const [EmPwErrMsg, setEmPwErrMsg] = useState('')
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      const res = await axios.post('login', {
-        email: `${email}`,
-        password: `${password}`,
+      const res = await axios.post('/login', {
+        email: email,
+        password: password,
       });
-    } catch (err) {
 
+      const { accessToken, refreshToken} = res.data
+
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+
+      navigate('/home', { replace : true})
+
+    } catch (err) {
+      console.error("로그인 오류", err.response?.data || err.message)
+      const serverMessage = err.response?.data?.message;
+      setEmPwErrMsg(serverMessage || "로그인 중 오류가 발생했습니다")
     }
   }
 
@@ -36,18 +47,8 @@ function Login() {
     setShowPassword(prev => !prev)
   }
 
-  const loginSuccess = (e) => {
-    e.preventDefault()
-    if(email === 's25052@gsm.hs.kr' && password === 'abcdefg'){
-      navigate('/home')
-    } else{
-      alert('무언가 오류가 났어요 ㅋ')
-    }
-    
-  }
-
   return (
-      <form className={styles.MainBox} onSubmit={loginSuccess}>
+      <form className={styles.MainBox} onSubmit={handleLogin}>
         <div className={styles.LogoBox}>
           <img src={Logo} alt='CodingGo 로고'/>
         </div>
@@ -75,6 +76,9 @@ function Login() {
           onClick={showPasswordChange}>
             {showPassword ? <FiEye size={18} color='gray'/> : <FiEyeOff size={18} color='gray' />}
           </button>
+        </div>
+        <div>
+          <p style={{fontSize : '14px', color : 'rgb(239, 22, 22)'}}>{EmPwErrMsg}</p>
         </div>
 
         </div>
