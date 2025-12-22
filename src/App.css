@@ -5,4 +5,5 @@ p, h1, h2, h3, h4, h5, h6 {
 body {
   width: 100%;
   background-color: rgb(245, 245, 245);
+  overflow-x: hidden;
 }

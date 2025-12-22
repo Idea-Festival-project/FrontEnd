@@ -186,12 +186,9 @@
   color: rgb(3, 187, 0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .HomePage {
     height: auto;
-  }
-  .TopDashboard {
-    height: auto;
-    flex-direction: column;
+    min-width: 950px;
   }
 }
