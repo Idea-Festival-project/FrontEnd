@@ -1,6 +1,6 @@
 .HomePage {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;
   padding-left: 290px;
@@ -10,7 +10,8 @@
   background-color: white;
 }
 
-.Greeting p {
+.Greeting p,
+.Remaining p {
   font-size: 15px;
   color: rgb(104, 104, 104);
 }
@@ -71,17 +72,11 @@
   height: 13px;
   border-radius: 10px;
   background-color: rgb(255, 244, 211);
-  
 }
 
 .Remaining {
   width: 100%;
   height: 20%;
-}
-
-.Remaining p {
-  font-size: 14px;
-  color: rgb(150, 150, 150);
 }
 
 .UserStatusCard {

@@ -1,6 +1,6 @@
 .HomePage {
   width: 100vw;
-  height: auto;
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;
   padding-left: 290px;
@@ -10,7 +10,9 @@
   background-color: white;
 }
 
-.Greeting p {
+.TitleText p,
+.TextGroup p,
+.UserStack p {
   font-size: 15px;
   color: rgb(104, 104, 104);
 }
@@ -38,6 +40,24 @@
   justify-content: flex-end; /* 하단 정렬 통일 */
   align-items: center;
   gap: 15px;
+  transition: all .3s ease;
+  transform: scale(1);
+}
+
+.PlaceBox:nth-child(1):hover {
+  transform: scale(1.02);
+  margin-right: 8px;
+}
+
+.PlaceBox:nth-child(2):hover {
+  transform: scale(1.02);
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+.PlaceBox:nth-child(3):hover {
+  transform: scale(1.02);
+  margin-left: 8px;
 }
 
 .Profile {
@@ -69,7 +89,7 @@
 .SecondPlace {
   width: 145px;
   height: 45%;
-  background: linear-gradient(135deg, oklch(90% 0.01 200), oklch(75% 0.02 250));
+  background: linear-gradient(180deg, oklch(90% 0.01 200), oklch(75% 0.02 250));
 }
 
 .ThirdPlace {
@@ -87,12 +107,6 @@
 
 .TextGroup h3 {
   font-size: 17px;
-}
-
-.TextGroup p {
-  font-size: 14px;
-  color: rgb(93, 93, 93);
-  margin: 0;
 }
 
 .RankingList {
@@ -155,6 +169,9 @@
   gap: 10px;
 }
 
-.UserStack p {
-  color: rgb(104, 104, 104);
+@media (max-width: 950px) {
+  .HomePage {
+    height: auto;
+    min-width: 950px;
+  }
 }

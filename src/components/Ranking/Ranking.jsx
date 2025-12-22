@@ -36,7 +36,7 @@ function Ranking() {
 
   return (
     <div className={styles.HomePage}>
-      <div className={styles.Greeting}>
+      <div className={styles.TitleText}>
         <h1>랭킹</h1>
         <p>누가 제일 앞서 있을까요?</p>
       </div>
