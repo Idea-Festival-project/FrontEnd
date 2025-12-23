@@ -1,15 +1,17 @@
 .problemsPage {
   width: 100%;
+  min-width: 800px;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;
   padding-left: 290px;
-  background-color: white;
+  background-color: #ffffff; /* 배경색을 살짝 깔아주면 카드가 더 잘 보입니다 */
 }
 
 .problemsTitle {
   font-size: 32px;
   font-weight: 800;
+  margin-bottom: 8px;
 }
 
 .problemsDesc {
@@ -17,95 +19,60 @@
   margin-bottom: 32px;
 }
 
-.filterRow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-
-.filterBtn {
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid #e5e5e5;
-  background-color: white;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.filterBtn.active {
-  background-color: #e9cc63;
-  border: none;
-  font-weight: 600;
-}
-
 .problemCard {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 28px 32px;
-  margin-bottom: 24px;
-
+  padding: 24px 32px;
+  margin-bottom: 20px;
   border-radius: 18px;
   background-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.264);
 }
 
 .problemLeft {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+}
+
+.problemId {
+  color: #adadad;
+  font-weight: 500;
+  margin-right: 8px;
 }
 
 .problemTitle {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .problemTags {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
-.tag {
-  padding: 6px 12px;
-  border-radius: 20px;
+.tierTag {
+  padding: 4px 12px;
+  border-radius: 6px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.tag.easy {
-  background-color: #e6f8ea;
-  color: #2e8b57;
-}
+/* solved.ac 공식 색상 기준 */
+.bronze { background-color: #ad5600; color: white; }
+.silver { background-color: #435f7a; color: white; }
+.gold { background-color: #ec9a00; color: white; }
+.platinum { background-color: #27e2a4; color: white; }
+.diamond { background-color: #00b4fc; color: white; }
+.ruby { background-color: #ff0062; color: white; }
 
-.tag.medium {
-  background-color: #fff3e0; /* 예시 색상 */
-  color: #ff9800; /* 예시 색상 */
-}
-
-.tag.hard {
-  background-color: #ffebee; /* 예시 색상 */
-  color: #f44336; /* 예시 색상 */
-}
-
-.tag.category {
-  background-color: #e7efff;
-  color: #4169e1;
-}
-
-.time {
+.linkText {
   font-size: 13px;
-  color: #777;
-}
-
-.score {
-  margin-top: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #f0b400;
+  color: #007bff;
+  text-decoration: underline;
 }
 
 .problemRight {
@@ -116,22 +83,26 @@
 
 .solveBtn {
   padding: 12px 22px;
-  border-radius: 16px;
-  background-color: #e9cc63;
+  border-radius: 12px;
+  background-color: #333;
+  color: white;
   border: none;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.solveBtn:hover {
+  background-color: #555;
 }
 
 .solvedIcon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  border: 3px solid #4caf50;
+  border: 2px solid #4caf50;
   color: #4caf50;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
 }

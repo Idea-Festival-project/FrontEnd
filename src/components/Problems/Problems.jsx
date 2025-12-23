@@ -1,111 +1,141 @@
-import { useState } from "react";
-import styles from './Problems.module.css';
-import { FaCheck } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import styles from "./Problems.module.css";
+import { useNavigate } from "react-router-dom";
 
 
 function Problems() {
-  const navigate = useNavigate();
-  
-  const handleSolveProblem = (problemId) => {
-    navigate(`/problemsSolved/${problemId}`);
+  const navigate = useNavigate()
+  const [problemList, setProblemList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProblemData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const response = await axios.get(
+          "/solved/api/v3/problem/lookup",
+          {
+            params: { problemIds: "1000,1003,1012,1008,1193,1021,1543,1674" },
+          }
+        );
+
+        if (Array.isArray(response.data)) {
+          setProblemList(response.data);
+          console.log(response.data)
+        } else {
+          setProblemList([]);
+        }
+      } catch (err) {
+        console.error(err);
+        setError(
+          err.response?.data?.message ||
+            err.message ||
+            "문제를 불러오는 데 실패했습니다."
+        );
+        setProblemList([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProblemData();
+  }, []);
+
+  const getTierName = (level) => {
+    if (level === 0) return "Unrated";
+
+    const tiers = ["Bronze", "Silver", "Gold", "Platinum", "Diamond", "Ruby"];
+    const tierIdx = Math.floor((level - 1) / 5);
+    const tierNum = 5 - ((level - 1) % 5);
+
+    return `${tiers[tierIdx]} ${tierNum}`;
   };
 
-  const [filter, setFilter] = useState("전체");
+  const getTierClass = (level) => {
+    if (level >= 1 && level <= 5) return styles.bronze;
+    if (level >= 6 && level <= 10) return styles.silver;
+    if (level >= 11 && level <= 15) return styles.gold;
+    if (level >= 16 && level <= 20) return styles.platinum;
+    if (level >= 21 && level <= 25) return styles.diamond;
+    if (level >= 26 && level <= 30) return styles.ruby;
+    return "";
+  };
 
-  const problemList = [
-    {
-      "id": 1,
-      "title": "두 수의 합",
-      "difficulty": "쉬움",
-      "category": "배열",
-      "timeLimit": 1,
-      "score": 100,
-      "solved": true
-    },
-    {
-      "id": 2,
-      "title": "팰린드롬 확인",
-      "difficulty": "쉬움",
-      "category": "문자열",
-      "timeLimit": 1,
-      "score": 100,
-      "solved": false
-    },
-    {
-      "id": 3,
-      "title": "이진 탐색",
-      "difficulty": "보통",
-      "category": "탐색",
-      "timeLimit": 2,
-      "score": 150,
-      "solved": false
-    },
-    {
-      "id": 4,
-      "title": "최단 거리",
-      "difficulty": "어려움",
-      "category": "그래프",
-      "timeLimit": 3,
-      "score": 300,
-      "solved": false
-    },
-  ];
+  if (loading) {
+    return (
+      <div className={styles.problemsPage}>
+        <div className={styles.loading}>데이터를 불러오는 중입니다.</div>
+      </div>
+    );
+  }
 
-  const filteredProblems =
-    filter === "전체"
-      ? problemList
-      : problemList.filter((p) => p.difficulty === filter);
-
-    const difficultyClassMap = {
-      "쉬움": styles.easy,
-      "보통": styles.medium,
-      "어려움": styles.hard,
-    };
+  if (error) {
+    return (
+      <div className={styles.problemsPage}>
+        <div className={styles.error}>
+          <p>오류: {error}</p>
+          <p>잠시 후 다시 시도해주세요</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.problemsPage}>
-      <h1 className={styles.problemsTitle}>문제</h1>
-      <p className={styles.problemsDesc}>2025년 최신 알고리즘 문제를 풀어보세요</p>
-
-      <div className={styles.filterRow}>
-        {["전체", "쉬움", "보통", "어려움"].map((level) => (
-          <button
-            key={level}
-            className={`${styles.filterBtn} ${filter === level ? styles.active : ""}`}
-            onClick={() => setFilter(level)}
-          >
-            {level}
-          </button>
-        ))}
-      </div>
+      <h1 className={styles.problemsTitle}>문제 목록</h1>
+      <p className={styles.problemsDesc}>solved.ac 문제</p>
 
       <div className={styles.problemList}>
-        {filteredProblems.map((p) => (
-          <div className={styles.problemCard} key={p.id}>
-            <div className={styles.problemLeft}>
-              <div className={styles.problemTitle}>{p.title}</div>
-              <div className={styles.problemTags}>
-                {/* 난이도에 따른 동적 클래스 적용 */}
-                <span className={`${styles.tag} ${difficultyClassMap[p.difficulty] || ''}`}>
-                  {p.difficulty}
-                </span>
-                <span className={`${styles.tag} ${styles.category}`}>{p.category}</span>
-                <span className={styles.time}>⏱ {p.timeLimit}초</span>
-              </div>
-              <div className={styles.score}>⭐ {p.score}점</div>
-            </div>
-
-            <div className={styles.problemRight}>
-              {p.solved && <div className={styles.solvedIcon}><FaCheck /></div>}
-              <button className={styles.solveBtn}
-              onClick={() => handleSolveProblem(p.id)}
-              >
-                {p.solved ? "다시 풀기" : "문제 풀기"}
-              </button>
-            </div>
+        {problemList.length === 0 ? (
+          <div className={styles.emptyMessage}>
+            문제를 불러오지 못 했어요
           </div>
-        ))}
+        ) : (
+          problemList.map((p) => (
+            <div className={styles.problemCard} key={p.problemId}>
+              <div className={styles.problemLeft}>
+                <div className={styles.problemTitle}>
+                  <span className={styles.problemId}>
+                    {p.problemId}번{" "}
+                  </span>
+                  {p.titleKo}
+                </div>
+
+                <div className={styles.problemTags}>
+                  <span
+                    className={`${styles.tierTag} ${getTierClass(p.level)}`}
+                  >
+                    {getTierName(p.level)}
+                  </span>
+
+                  <a
+                    href={`https://www.acmicpc.net/problem/${p.problemId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.linkText}
+                  >
+                    백준에서 보기
+                  </a>
+                </div>
+              </div>
+
+              <div className={styles.problemRight}>
+                <button
+                  className={styles.solveBtn}
+                  onClick={() =>
+                    navigate(`/problemsSolved/${p.problemId}`)
+                  }
+                >
+                  문제 풀기
+                </button>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

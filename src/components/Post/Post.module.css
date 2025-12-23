@@ -1,6 +1,7 @@
 /* 전체 페이지 컨테이너 */
 .PostPage {
   width: 100%;
+  min-width: 1000px;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;

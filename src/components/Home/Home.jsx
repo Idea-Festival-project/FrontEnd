@@ -1,18 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import styles from './Home.module.css'
 import { LuTarget } from "react-icons/lu";
 import { BiTrophy } from "react-icons/bi";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { FaRegCalendar } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa6";
+import axios from 'axios';
 
 function Home() {
-  const [username, setUsername] = useState('류수연')
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
   const todaySolvedGoals = 3
-  const [todaySolved, setTodaySolved] = useState(2)
+  const [todaySolved, setTodaySolved] = useState(0)
   const progress = Math.floor(todaySolved / todaySolvedGoals * 100)
-  const totalSolved = 0
-  const totalCorrectRate = 0
+  const [totalSolved, setTotalSolved] = useState(0)
+  const [totalCorrectRate, setTotalCorrectRate] = useState(0)
   const [todayRecommendProblems, setTodayRecommendProblems] = useState([
     {
       title : '두 수의 합 구하기',
@@ -47,11 +50,24 @@ const difficultyStyleMap = {
   },
 }
 
+  useEffect(() => {
+    async function getUserStatus() {
+      try {
+        const res = await axios.get('/my');
+        setUsername(res.data.nickname)
+        setTotalSolved(res.data.status.total_problems)
+      } catch (err) {
+        console.error('데이터를 받아오지 못했습니다', err.message)
+      }
+    }
+    getUserStatus();
+  }, [])
+
 
   return(
     <div className={styles.HomePage}>
       <div className={styles.Greeting}>
-        <h1>안녕하세요, {username}님!</h1>
+        <h1>안녕하세요, {username??'-'}님!</h1>
         <p>오늘은 무슨 문제를 풀어볼까요?</p>
       </div>
 
@@ -83,7 +99,7 @@ const difficultyStyleMap = {
           <div className={styles.TotalSolved}>
             <div>
               <p>해결한 문제 수</p>
-              <h2>{totalSolved}</h2>
+              <h2>{totalSolved??'-'}</h2>
             </div>
             <div style={{flexGrow : '3'}}></div>
             <BiTrophy size={35} color='rgb(235, 218, 65)'/>
@@ -91,7 +107,7 @@ const difficultyStyleMap = {
           <div className={styles.TotalCorrectRate}>
             <div>
               <p>정답률</p>
-              <h2>{totalCorrectRate}%</h2>
+              <h2>{totalCorrectRate??'-'}%</h2>
             </div>
             <div style={{flexGrow : '3'}}></div>
             <FaArrowTrendUp size={35} color='rgb(103, 239, 108)'/>
@@ -107,7 +123,7 @@ const difficultyStyleMap = {
         <div style={{height : '25%'}} />
         <div className={styles.TodayRecommendProblemGroup}>
           {todayRecommendProblems.map((problem) => (
-            <div className={styles.TodayRecommendProblemsBox}>
+            <div key={problem.id} className={styles.TodayRecommendProblemsBox}>
               <div
                 key={problem.title}
                 className={styles.TodayRecommendProblemItem}
