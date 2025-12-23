@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styles from './ProblemsSolved.module.css'
 
-function ProblemSolve() {
+function ProblemsSolved() {
   const { id } = useParams(); // URL에서 문제 ID 받아오기
   const navigate = useNavigate();
   const [code, setCode] = useState('');
@@ -198,4 +198,4 @@ function twoSum(nums, target) {
   );
 }
 
-export default ProblemSolve;
+export default ProblemsSolved;

@@ -6,6 +6,7 @@ function Friend() {
 
   const friends = [
     {
+      id: 1,
       name: '코딩마스터',
       tier: 'Gold I',
       avatar: '👨‍💻',
@@ -13,6 +14,7 @@ function Friend() {
       streak: 15,
     },
     {
+      id : 2,
       name: '알고리즘러버',
       tier: 'Silver III',
       avatar: '👨‍💻',
@@ -20,6 +22,7 @@ function Friend() {
       streak: 12,
     },
     {
+      id : 3,
       name: 'Python사랑',
       tier: 'Silver II',
       avatar: '🐍',
@@ -27,6 +30,7 @@ function Friend() {
       streak: 8,
     },
     {
+      id : 4,
       name: 'Java고수',
       tier: 'Bronze I',
       avatar: '☕',

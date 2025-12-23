@@ -20,6 +20,8 @@ function NavBar() {
   const navigate = useNavigate()
 
   const logOut = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
     navigate('/login')
   }
 

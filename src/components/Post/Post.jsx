@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Post.module.css';
 
+
+  const tags = ['전체', '도움요청', '피드백', '잡담'];
+
 const Post = () => {
   const navigate = useNavigate();
   const [selectedTag, setSelectedTag] = useState('전체');
   const [content, setContent] = useState('');
 
-  const tags = ['전체', '도움요청', '피드백', '잡담'];
+
 
   // 게시글 제출 핸들러
   const handleSubmit = () => {
