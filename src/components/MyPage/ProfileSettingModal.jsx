@@ -13,7 +13,10 @@ const ownedProfileIds = [1, 3]
 
 function ProfileSettingModal({ onClose, onSelect, currentPoints = 1000 }) {
   const [selected, setSelected] = useState(null)
-  const [ownedProfiles, setOwnedProfiles] = useState(ownedProfileIds)
+  const [ownedProfiles, setOwnedProfiles] = useState(() => {
+    const saved = localStorage.getItem('ownedProfiles')
+    return saved ? JSON.parse(saved) : ownedProfileIds
+  })
   const [points, setPoints] = useState(currentPoints)
   const [purchaseConfirm, setPurchaseConfirm] = useState(null)
 
@@ -25,9 +28,16 @@ function ProfileSettingModal({ onClose, onSelect, currentPoints = 1000 }) {
 
   const confirmPurchase = () => {
     if (purchaseConfirm) {
-      setPoints(points - purchaseConfirm.price)
-      setOwnedProfiles([...ownedProfiles, purchaseConfirm.id])
+      const newPoints = points - purchaseConfirm.price
+      const newOwnedProfiles = [...ownedProfiles, purchaseConfirm.id]
+      
+      setPoints(newPoints)
+      setOwnedProfiles(newOwnedProfiles)
       setSelected(purchaseConfirm.src)
+      
+      // localStorage에 저장
+      localStorage.setItem('ownedProfiles', JSON.stringify(newOwnedProfiles))
+      
       setPurchaseConfirm(null)
     }
   }
@@ -52,7 +62,7 @@ function ProfileSettingModal({ onClose, onSelect, currentPoints = 1000 }) {
                 className={`${styles.imageBtn} ${
                   selected === img.src ? styles.active : ''
                 } ${!isOwned ? styles.locked : ''}`}
-                onClick={() => isOwned ? setSelected(img.src) : handlePurchase(img)}
+                onClick={() => isOwned ? setSelected(img.src) : handlePurchaseClick(img)}
               >
                 <img src={img.src} alt="profile" />
                 {!isOwned && (
@@ -79,6 +89,24 @@ function ProfileSettingModal({ onClose, onSelect, currentPoints = 1000 }) {
           </button>
         </div>
       </div>
+
+      {purchaseConfirm && (
+        <div className={styles.confirmOverlay}>
+          <div className={styles.confirmModal}>
+            <h3>프로필 구매</h3>
+            <p>정말로 이 프로필을 구매하시겠습니까?</p>
+            <p className={styles.confirmPrice}>{purchaseConfirm.price} 포인트</p>
+            <div className={styles.confirmFooter}>
+              <button className={styles.cancelBtn} onClick={cancelPurchase}>
+                취소
+              </button>
+              <button className={styles.saveBtn} onClick={confirmPurchase}>
+                구매
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
