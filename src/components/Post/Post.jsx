@@ -4,10 +4,10 @@ import styles from './Post.module.css';
 
 const Post = () => {
   const navigate = useNavigate();
-  const [selectedTag, setSelectedTag] = useState('ALL');
+  const [selectedTag, setSelectedTag] = useState('전체');
   const [content, setContent] = useState('');
 
-  const tags = ['ALL', 'C', 'JAVA', 'PYTHON'];
+  const tags = ['전체', '도움요청', '피드백', '잡담'];
 
   // 게시글 제출 핸들러
   const handleSubmit = () => {

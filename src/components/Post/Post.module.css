@@ -1,6 +1,6 @@
 /* 전체 페이지 컨테이너 */
 .PostPage {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;
@@ -79,16 +79,16 @@
   padding: 12px 30px;
   border-radius: 12px;
   border: none;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
   color: #aaa;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.Active {
-  background-color: #E9D182 !important; /* 우선순위 확보 */
-  color: white !important;
+.TagBox.Active {
+  background-color: #E9D182; /* 우선순위 확보 */
+  color: white;
 }
 
 .ContentArea {

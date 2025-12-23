@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Community() {
 
-  const communityPosts = [
+  const [communityPosts, setCommunityPosts] = useState([
   {
     "id": 1,
     "author": "코딩마스터",
@@ -41,7 +41,7 @@ function Community() {
     "time": "3일 전",
     "comments": 22,
   }
-]
+])
 
   const navigate = useNavigate()
 

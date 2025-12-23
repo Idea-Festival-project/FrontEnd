@@ -1,53 +1,67 @@
 import { useState } from "react";
-import styles from './Problem.module.css';
+import styles from './Problems.module.css';
+import { FaCheck } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 
-// 별도 파일 없이 변수에 바로 담은 데이터
-const problemList = [
-  {
-    "id": 1,
-    "title": "두 수의 합",
-    "difficulty": "쉬움",
-    "category": "배열",
-    "timeLimit": 1,
-    "score": 100,
-    "solved": true
-  },
-  {
-    "id": 2,
-    "title": "팰린드롬 확인",
-    "difficulty": "쉬움",
-    "category": "문자열",
-    "timeLimit": 1,
-    "score": 100,
-    "solved": false
-  },
-  {
-    "id": 3,
-    "title": "이진 탐색",
-    "difficulty": "보통",
-    "category": "탐색",
-    "timeLimit": 2,
-    "score": 150,
-    "solved": false
-  },
-  {
-    "id": 4,
-    "title": "최단 거리",
-    "difficulty": "어려움",
-    "category": "그래프",
-    "timeLimit": 3,
-    "score": 300,
-    "solved": false
-  }
-];
 
 function Problems() {
+  const navigate = useNavigate();
+  
+  const handleSolveProblem = (problemId) => {
+    navigate(`/problemsSolved/${problemId}`);
+  };
+
   const [filter, setFilter] = useState("전체");
+
+  const problemList = [
+    {
+      "id": 1,
+      "title": "두 수의 합",
+      "difficulty": "쉬움",
+      "category": "배열",
+      "timeLimit": 1,
+      "score": 100,
+      "solved": true
+    },
+    {
+      "id": 2,
+      "title": "팰린드롬 확인",
+      "difficulty": "쉬움",
+      "category": "문자열",
+      "timeLimit": 1,
+      "score": 100,
+      "solved": false
+    },
+    {
+      "id": 3,
+      "title": "이진 탐색",
+      "difficulty": "보통",
+      "category": "탐색",
+      "timeLimit": 2,
+      "score": 150,
+      "solved": false
+    },
+    {
+      "id": 4,
+      "title": "최단 거리",
+      "difficulty": "어려움",
+      "category": "그래프",
+      "timeLimit": 3,
+      "score": 300,
+      "solved": false
+    },
+  ];
 
   const filteredProblems =
     filter === "전체"
       ? problemList
       : problemList.filter((p) => p.difficulty === filter);
+
+    const difficultyClassMap = {
+      "쉬움": styles.easy,
+      "보통": styles.medium,
+      "어려움": styles.hard,
+    };
 
   return (
     <div className={styles.problemsPage}>
@@ -73,10 +87,7 @@ function Problems() {
               <div className={styles.problemTitle}>{p.title}</div>
               <div className={styles.problemTags}>
                 {/* 난이도에 따른 동적 클래스 적용 */}
-                <span className={`${styles.tag} ${
-                  p.difficulty === "쉬움" ? styles.easy : 
-                  p.difficulty === "보통" ? styles.medium : styles.hard
-                }`}>
+                <span className={`${styles.tag} ${difficultyClassMap[p.difficulty] || ''}`}>
                   {p.difficulty}
                 </span>
                 <span className={`${styles.tag} ${styles.category}`}>{p.category}</span>
@@ -86,8 +97,10 @@ function Problems() {
             </div>
 
             <div className={styles.problemRight}>
-              {p.solved && <div className={styles.solvedIcon}>✓</div>}
-              <button className={styles.solveBtn}>
+              {p.solved && <div className={styles.solvedIcon}><FaCheck /></div>}
+              <button className={styles.solveBtn}
+              onClick={() => handleSolveProblem(p.id)}
+              >
                 {p.solved ? "다시 풀기" : "문제 풀기"}
               </button>
             </div>

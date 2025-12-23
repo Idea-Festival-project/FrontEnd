@@ -1,12 +1,9 @@
 .problemsPage {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   padding: 30px;
   padding-left: 290px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   background-color: white;
 }
 
@@ -82,6 +79,16 @@
 .tag.easy {
   background-color: #e6f8ea;
   color: #2e8b57;
+}
+
+.tag.medium {
+  background-color: #fff3e0; /* 예시 색상 */
+  color: #ff9800; /* 예시 색상 */
+}
+
+.tag.hard {
+  background-color: #ffebee; /* 예시 색상 */
+  color: #f44336; /* 예시 색상 */
 }
 
 .tag.category {

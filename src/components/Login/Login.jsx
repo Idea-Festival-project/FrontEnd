@@ -78,7 +78,7 @@ function Login() {
           </button>
         </div>
         <div>
-          <p style={{fontSize : '14px', color : 'rgb(239, 22, 22)'}}>{EmPwErrMsg}</p>
+          <h6 className={styles.ErrorMessage}>{EmPwErrMsg}</h6>
         </div>
 
         </div>

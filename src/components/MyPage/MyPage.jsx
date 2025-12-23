@@ -1,4 +1,4 @@
-import { use, useState } from 'react'
+import { useState } from 'react'
 import styles from './MyPage.module.css'
 import { FaStar } from 'react-icons/fa6'
 import { BiTrophy } from "react-icons/bi";
