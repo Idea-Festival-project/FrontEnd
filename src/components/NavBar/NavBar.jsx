@@ -1,5 +1,5 @@
 import styles from './NavBar.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Logo from '../../assets/CodingGo-logo.png'
 import { RiHomeFill } from "react-icons/ri";
 import { RiHomeLine } from "react-icons/ri";
@@ -12,9 +12,18 @@ import { BiSolidTrophy } from "react-icons/bi";
 import { RiUser3Line } from "react-icons/ri";
 import { RiUser3Fill } from "react-icons/ri";
 import { RxExit } from "react-icons/rx";
+import { IoFlag } from "react-icons/io5";
+import { IoFlagOutline } from "react-icons/io5";
+
 
 function NavBar() {
+  const navigate = useNavigate()
 
+  const logOut = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    navigate('/login')
+  }
 
   return(
       <div className={styles.NavBar}>
@@ -83,9 +92,9 @@ function NavBar() {
             {({ isActive }) => (
               <>
                 {isActive ? (
-                  <BsFillPeopleFill size={25} className={styles.TabIcons} />
+                  <IoFlag size={25} className={styles.TabIcons} />
                 ) : (
-                  <BsPeople size={25} className={styles.TabIcons} />
+                  <IoFlagOutline size={25} className={styles.TabIcons} />
                 )}
                 <p>질문 게시판</p>
               </>
@@ -113,6 +122,25 @@ function NavBar() {
           </NavLink>
 
           <NavLink 
+            to='/friend'
+            className={({ isActive }) => 
+              isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
+            }>
+              
+            {({ isActive }) => (
+              <>
+                {isActive ? (
+                  <BsFillPeopleFill size={25} className={styles.TabIcons} />
+                ) : (
+                  <BsPeople size={25} className={styles.TabIcons} />
+                )}
+                <p>친구</p>
+              </>
+            )}
+            
+          </NavLink>
+
+          <NavLink 
             to='/mypage'
             className={({ isActive }) => 
               isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
@@ -130,10 +158,14 @@ function NavBar() {
             )}
             
           </NavLink>
+
+          
         </div>
           <div className={styles.NavBarFooter}>
             <div className={styles.FooterLayout}>
-              <div className={styles.FooterGroupBox}>
+              <div className={styles.FooterGroupBox}
+              onClick={logOut}
+              >
                 <p>로그아웃</p>
                 <RxExit size={25}/>            
               </div>            

@@ -9,6 +9,10 @@ import Home from './components/Home/Home'
 import Problems from './components/Problems/Problems'
 import Ranking from './components/Ranking/Ranking'
 import MyPage from './components/Mypage/Mypage'
+import Post from './components/Post/Post'
+import Friend from './components/Friend/Friend'
+import ProblemsSolved from './components/ProblemsSolved/ProblemsSolved'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 function App() {
@@ -26,6 +30,9 @@ function App() {
         <Route path='/problems' element={<Problems />} />
         <Route path='/ranking' element={<Ranking />} />
         <Route path='/MyPage' element={<MyPage />} />
+        <Route path='/post' element={<Post />} />
+        <Route path='/friend' element={<Friend />} />
+        <Route path='/problemsSolved/:id' element={<ProblemsSolved />} />
       </Route>
       <Route path='*' element={<h1>페이지를 찾을 수 없습니다 404</h1>} />
     </Routes>

@@ -10,21 +10,21 @@ function Ranking() {
   const [ranking, setRanking] = useState([
     {
       place : '1',
-      name : '코딩이 재밌어요',
+      name : '이의빈',
       point : '4800',
       streak : '20',
     },
 
     {
       place : '2',
-      name : '왜 오류가 나는걸까 ㅠㅠ',
-      point : '3200',
+      name : '정종윤',
+      point : '3500',
       streak : '13',
     },
 
     {
       place : '3',
-      name : 'CodingGoMaster',
+      name : '유휘영',
       point : '2500',
       streak : '10',
     },
@@ -36,7 +36,7 @@ function Ranking() {
 
   return (
     <div className={styles.HomePage}>
-      <div className={styles.Greeting}>
+      <div className={styles.TitleText}>
         <h1>랭킹</h1>
         <p>누가 제일 앞서 있을까요?</p>
       </div>
