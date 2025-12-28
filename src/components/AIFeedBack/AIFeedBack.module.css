@@ -1,0 +1,155 @@
+.container {
+  width: 100%;
+  min-width: 800px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-left: 290px;
+  background-color: #ffffff;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.spinner {
+  font-size: 48px;
+  color: #4a90e2;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loadingText {
+  margin-top: 24px;
+  font-size: 18px;
+  color: #666;
+  font-weight: 500;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.cardIcon {
+  font-size: 24px;
+  color: #4a90e2;
+}
+
+.cardTitle {
+  font-size: 21px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.commentItem {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border-left: 4px solid #4a90e2;
+}
+
+.commentIcon {
+  font-size: 24px;
+  color: #4a90e2;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.commentText {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.button {
+  flex: 1;
+  max-width: 300px;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #4a90e2;
+  color: white;
+}
+
+.button:hover {
+  background: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.buttonSecondary {
+  background: #6c757d;
+}
+
+.buttonSecondary:hover {
+  background: #5a6268;
+}
+
+.problemInfo {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #666;
+  font-weight: normal;
+}
+
+.errorText {
+  color: #e74c3c;
+  line-height: 1.6;
+  margin: 0;
+  padding: 16px;
+}

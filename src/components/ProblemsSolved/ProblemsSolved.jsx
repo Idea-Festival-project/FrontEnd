@@ -52,15 +52,6 @@ function ProblemsSolved() {
       constraints: ["1 ≤ X ≤ 10,000,000"]
     },
 
-    1400: {
-      title: "??? (가상의 문제)",
-      difficulty: "silver",
-      description:
-        "문제 1400번은 아직 구체화되지 않은 예시 문제입니다. 로직 구현 연습용이에요오.",
-      examples: [{ input: "예제 입력", output: "예제 출력" }],
-      constraints: ["연습용 문제"]
-    },
-
     1543: {
       title: "문서 검색",
       difficulty: "silver",
@@ -74,15 +65,6 @@ function ProblemsSolved() {
       ],
       constraints: ["문서와 단어의 길이는 2500 이하"]
     },
-
-    1674: {
-      title: "도시 분할 계획",
-      difficulty: "gold",
-      description:
-        "도시를 두 개의 마을로 분할할 때 유지비의 합이 최소가 되도록 하시오.",
-      examples: [{ input: "7 12\n1 2 3\n...", output: "8" }],
-      constraints: ["1 ≤ N ≤ 100,000"]
-    }
   };
 
   const problem = problems[id];
@@ -90,7 +72,7 @@ function ProblemsSolved() {
   if (!problem) {
     return (
       <div className={styles.container}>
-        <h2>존재하지 않는 문제예요오… 😢</h2>
+        <h2>존재하지 않는 문제예요</h2>
         <button onClick={() => navigate('/problems')}>
           문제 목록으로 돌아가기
         </button>
@@ -99,8 +81,18 @@ function ProblemsSolved() {
   }
 
   const handleSubmit = () => {
-    alert('제출되었습니다!');
-    navigate('/problems');
+    if (!code.trim()) {
+      alert('코드를 작성해주세요!');
+      return;
+    }
+    // 코드와 문제 정보를 AIFeedback으로 전달
+    navigate(`/AiFeedBack/${id}`, {
+      state: {
+        code: code,
+        problemId: id,
+        problemTitle: problem.title
+      }
+    });
   };
 
   return (
@@ -118,7 +110,6 @@ function ProblemsSolved() {
               {problem.difficulty}
             </span>
             <span className={styles.headerMeta}>
-              ⭐ {problem.score}점
             </span>
           </div>
         </div>

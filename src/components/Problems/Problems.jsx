@@ -19,7 +19,7 @@ function Problems() {
         const response = await axios.get(
           "/solved/api/v3/problem/lookup",
           {
-            params: { problemIds: "1000,1003,1012,1008,1193,1021,1543,1674" },
+            params: { problemIds: "1000,1003,1012,1008,1193,1543" },
           }
         );
 
@@ -111,24 +111,13 @@ function Problems() {
                   >
                     {getTierName(p.level)}
                   </span>
-
-                  <a
-                    href={`https://www.acmicpc.net/problem/${p.problemId}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.linkText}
-                  >
-                    백준에서 보기
-                  </a>
                 </div>
               </div>
 
               <div className={styles.problemRight}>
                 <button
                   className={styles.solveBtn}
-                  onClick={() =>
-                    navigate(`/problemsSolved/${p.problemId}`)
-                  }
+                  onClick={() => navigate(`/problemsSolved/${p.problemId}`)}
                 >
                   문제 풀기
                 </button>

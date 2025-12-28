@@ -18,11 +18,13 @@ function Home() {
   const [totalCorrectRate, setTotalCorrectRate] = useState(0)
   const [todayRecommendProblems, setTodayRecommendProblems] = useState([
     {
+      id: 1,
       title : '두 수의 합 구하기',
       difficulty : 'easy',
       point : 100,
     },
     {
+      id: 2,
       title : '이진 트리 구현하기',
       difficulty : 'medium',
       point : 500,
@@ -49,6 +51,10 @@ const difficultyStyleMap = {
     color: 'rgb(220, 38, 38)',
   },
 }
+
+  const handleProblemClick = () => {
+    navigate('/problems')
+  }
 
   useEffect(() => {
     async function getUserStatus() {
@@ -125,8 +131,8 @@ const difficultyStyleMap = {
           {todayRecommendProblems.map((problem) => (
             <div key={problem.id} className={styles.TodayRecommendProblemsBox}>
               <div
-                key={problem.title}
                 className={styles.TodayRecommendProblemItem}
+                onClick={() => handleProblemClick()}
               >
                 <div className={styles.ProblemInfo}>
                   <h3>{problem.title}</h3>

@@ -12,6 +12,7 @@ import MyPage from './components/Mypage/Mypage'
 import Post from './components/Post/Post'
 import Friend from './components/Friend/Friend'
 import ProblemsSolved from './components/ProblemsSolved/ProblemsSolved'
+import AIFeedback from './components/AIFeedBack/AIFeedBack'
 import ProtectedRoute from './components/ProtectedRoute'
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/post' element={<Post />} />
         <Route path='/friend' element={<Friend />} />
         <Route path='/problemsSolved/:id' element={<ProblemsSolved />} />
+        <Route path='/AiFeedBack/:id' element={<AIFeedback />} />
       </Route>
       <Route path='*' element={<h1>페이지를 찾을 수 없습니다 404</h1>} />
     </Routes>
