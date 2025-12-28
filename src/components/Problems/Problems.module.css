@@ -1,0 +1,108 @@
+.problemsPage {
+  width: 100%;
+  min-width: 800px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-left: 290px;
+  background-color: #ffffff; /* 배경색을 살짝 깔아주면 카드가 더 잘 보입니다 */
+}
+
+.problemsTitle {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.problemsDesc {
+  color: #8b8b8b;
+  margin-bottom: 32px;
+}
+
+.problemCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.264);
+}
+
+.problemLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.problemId {
+  color: #adadad;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.problemTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.problemTags {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tierTag {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* solved.ac 공식 색상 기준 */
+.bronze { background-color: #ad5600; color: white; }
+.silver { background-color: #435f7a; color: white; }
+.gold { background-color: #ec9a00; color: white; }
+.platinum { background-color: #27e2a4; color: white; }
+.diamond { background-color: #00b4fc; color: white; }
+.ruby { background-color: #ff0062; color: white; }
+
+.linkText {
+  font-size: 13px;
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.problemRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.solveBtn {
+  padding: 12px 22px;
+  border-radius: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.solveBtn:hover {
+  background-color: #555;
+}
+
+.solvedIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #4caf50;
+  color: #4caf50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

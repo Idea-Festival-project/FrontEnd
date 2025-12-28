@@ -1,0 +1,117 @@
+.TitleText p,
+.UserInfoBox p,
+.NextLvNdText,
+.UserStatusItems p {
+  font-size: 15px;
+  color: rgb(104, 104, 104);
+}
+
+.HomePage {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 30px;
+  padding-left: 290px;
+  background-color: white;
+}
+
+.TextSettGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SettingBox {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  border: 2px solid rgb(244, 244, 244);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ProfileCard {
+  width: 100%;
+  height: 330px;
+  margin-top: 30px;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid rgb(244, 244, 244);
+  border-radius: 15px;
+  box-shadow: 1px 1px 5px 1px gainsboro;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ProfileImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 1000px;
+  background-color: antiquewhite;
+}
+
+.ProfileImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 1000px;
+}
+
+.UserInfoBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.UserNameLv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.UserNameLv div {
+  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 191, 0, 0.12);
+  color: rgb(255, 196, 46);
+}
+
+.UserStatusCard {
+  width: 100%;
+  height: 240px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px
+}
+
+.UserStatusItems {
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid rgb(244, 244, 244);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  box-shadow: 1px 1px 5px 1px gainsboro;
+}
+
+.UserStatusItems h3 {
+  font-size: 30px;
+}
