@@ -5,18 +5,47 @@
   box-sizing: border-box;
   padding: 30px;
   padding-left: 290px;
-  background-color: #ffffff; /* 배경색을 살짝 깔아주면 카드가 더 잘 보입니다 */
+  background-color: #f8f9fa;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
 }
 
 .problemsTitle {
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 8px;
+  color: #222;
 }
 
 .problemsDesc {
   color: #8b8b8b;
-  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+.syncBtn {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.syncBtn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.syncBtn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .problemCard {
@@ -24,10 +53,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 24px 32px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border-radius: 18px;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.264);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.solvedCard {
+  background-color: #f0fdf4 !important;
+  border: 1px solid #bbf7d0;
 }
 
 .problemLeft {
@@ -39,12 +73,21 @@
 .problemId {
   color: #adadad;
   font-weight: 500;
-  margin-right: 8px;
+  margin-right: 12px;
+  font-size: 18px;
 }
 
 .problemTitle {
   font-size: 20px;
   font-weight: 700;
+  color: #333;
+}
+
+.solvedText {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #4caf50;
+  font-weight: bold;
 }
 
 .problemTags {
@@ -56,12 +99,11 @@
 .tierTag {
   padding: 4px 12px;
   border-radius: 6px;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
-/* solved.ac 공식 색상 기준 */
 .bronze { background-color: #ad5600; color: white; }
 .silver { background-color: #435f7a; color: white; }
 .gold { background-color: #ec9a00; color: white; }
@@ -73,6 +115,12 @@
   font-size: 13px;
   color: #007bff;
   text-decoration: underline;
+}
+
+.pointInfo {
+  font-size: 13px;
+  color: #f08c00;
+  font-weight: 600;
 }
 
 .problemRight {
@@ -89,20 +137,62 @@
   border: none;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
-}
-
-.solveBtn:hover {
-  background-color: #555;
 }
 
 .solvedIcon {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid #4caf50;
   color: #4caf50;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 40px 0 80px 0;
+}
+
+.pageBtn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  color: #495057;
+  transition: all 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.pageBtn:disabled {
+  background: #f1f3f5;
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.activePage {
+  background: #333 !important;
+  color: white !important;
+  border-color: #333 !important;
+}
+.fetchMoreBtn {
+  background-color: #e7f5ff !important;
+  color: #228be6 !important;
+  border: 1px dashed #228be6 !important;
+  font-weight: 800;
+}
+
+.fetchMoreBtn:hover {
+  background-color: #228be6 !important;
+  color: white !important;
 }
