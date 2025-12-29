@@ -135,3 +135,40 @@
   font-size: 12px;
   color: rgb(120, 120, 120);
 }
+.EmailInputGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.EmailInputGroup input {
+  flex: 1;
+}
+
+.VerificationBtn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.VerificationBtn:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+.VerificationBtn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.Timer {
+  color: #ff5252;
+  font-size: 14px;
+  margin-left: 8px;
+  font-weight: 500;
+}

@@ -7,10 +7,29 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import axios from 'axios';
 
 function Ranking() {
-  const [ranking, setRanking] = useState([])
-  const first = ranking[0] || { nickname: '-', problems_solved: '0' };
-  const second = ranking[1] || { nickname: '-', problems_solved: '0' };
-  const third = ranking[2] || { nickname: '-', problems_solved: '0' };
+  const [ranking, setRanking] = useState([
+    { 
+      rank: 1, 
+      nickname: '의빈', 
+      streak: 1500,
+      profileImage: 'https://i.imgur.com/placeholder1.jpg' // 실제 이미지 URL로 교체 필요
+    },
+    { 
+      rank: 2, 
+      nickname: '현진', 
+      streak: 1200,
+      profileImage: 'https://i.imgur.com/placeholder2.jpg' // 실제 이미지 URL로 교체 필요
+    },
+    { 
+      rank: 3, 
+      nickname: '휘영', 
+      streak: 1000,
+      profileImage: 'https://i.imgur.com/placeholder3.jpg' // 실제 이미지 URL로 교체 필요
+    }
+  ])
+  const first = ranking[0] || { nickname: '-', streak: '0' };
+  const second = ranking[1] || { nickname: '-', streak: '0' };
+  const third = ranking[2] || { nickname: '-', streak: '0' };
 
 
   useEffect(() => {
@@ -36,35 +55,41 @@ function Ranking() {
 
       <div className={styles.RankingDashboard}>
         <div className={styles.PlaceBox}>
-          <div className={styles.Profile}></div>
+          <div className={styles.Profile}>
+            {second.profileImage && <img src={second.profileImage} alt={second.nickname} />}
+          </div>
           <div className={`${styles.Bar} ${styles.SecondPlace}`}>
             <PiMedalBold size={45} color='white'/>
           </div>
           <div className={styles.TextGroup}>
             <h3>{second.nickname}</h3>
-            <p>{second.problems_solved}개</p>                 
+            <p>{second.streak}포인트</p>                 
           </div>
         </div>
 
         <div className={styles.PlaceBox}>
-          <div className={styles.Profile}></div>
+          <div className={styles.Profile}>
+            {first.profileImage && <img src={first.profileImage} alt={first.nickname} />}
+          </div>
           <div className={`${styles.Bar} ${styles.FirstPlace}`}>
             <BiTrophy size={55} color='white' />
           </div>
           <div className={styles.TextGroup}>
             <h3>{first.nickname}</h3>
-            <p>{first.problems_solved}개</p>                 
+            <p>{first.streak}포인트</p>                 
           </div>
         </div>
 
         <div className={styles.PlaceBox}>
-          <div className={styles.Profile}></div>
+          <div className={styles.Profile}>
+            {third.profileImage && <img src={third.profileImage} alt={third.nickname} />}
+          </div>
           <div className={`${styles.Bar} ${styles.ThirdPlace}`}>
             <PiMedalBold size={45} color='white'/>
           </div>
           <div className={styles.TextGroup}>
             <h3>{third.nickname}</h3>
-            <p>{third.problems_solved}개</p>                 
+            <p>{third.streak}포인트</p>                 
           </div>
         </div>
 
@@ -77,18 +102,14 @@ function Ranking() {
           <p className={styles.RankingPlace}>{rak.rank}</p>
           <div className={styles.UserInfoGroup}>
             <div className={styles.RankingListProfile}>
-              {/*프로필 이미지*/}
+              {rak.profileImage && <img src={rak.profileImage} alt={rak.nickname} />}
             </div>
             <div>
               <h3>{rak.nickname}</h3>
               <div className={styles.UserStackBox}>
                 <div className={styles.UserStack}>
-                  <FaStar color='rgb(248, 198, 90)' />
-                  <p>{rak.problems_solved}개</p>                
-                </div>
-                <div className={styles.UserStack}>
                   <FaArrowTrendUp color='rgb(104, 104, 104)' />
-                  <p>{rak.streak}문제</p>                
+                  <p>{rak.streak}포인트</p>                
                 </div>   
               </div>
             </div>            

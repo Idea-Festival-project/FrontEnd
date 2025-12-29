@@ -8,9 +8,9 @@ import axios from 'axios'
 import ProfileSettingModal from './ProfileSettingModal'
 
 function MyPage() {
-  const [totalPoint, setTotalPoint] = useState(0)
+  const [totalPoint, setTotalPoint] = useState(1500)
   const [totalSuccessProblem, setTotalSuccessProblem] = useState(0)
-  const [userName, setUserName] = useState(null)
+  // const [userName, setUserName] = useState('종윤')
   const [profileImgUrl, setProfileImgUrl] = useState(() => {
     return localStorage.getItem('profileImage') || '/Atti_noma.png'
   })
@@ -58,7 +58,7 @@ function MyPage() {
         </div>
 
         <div className={styles.UserInfoBox}>
-          <h2>{userName ?? '-'}</h2>
+          <h2>종윤</h2>
           <p>Bronze</p>
         </div>
       </div>
@@ -66,13 +66,13 @@ function MyPage() {
       <div className={styles.UserStatusCard}>
         <div className={styles.UserStatusItems}>
           <FaStar size={30} color='rgb(248, 198, 90)' />
-          <h3>{totalPoint}</h3>
+          <h3>1500</h3>
           <p>총 포인트</p>
         </div>
 
         <div className={styles.UserStatusItems}>
           <BiTrophy size={30} color='rgb(248, 198, 90)' />
-          <h3>{totalSuccessProblem}</h3>
+          <h3>33</h3>
           <p>해결한 문제 수</p>
         </div>
       </div>

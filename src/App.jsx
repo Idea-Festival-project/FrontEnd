@@ -34,7 +34,7 @@ function App() {
         <Route path='/post' element={<Post />} />
         <Route path='/friend' element={<Friend />} />
         <Route path='/problemsSolved/:id' element={<ProblemsSolved />} />
-        <Route path='/AiFeedBack/:id' element={<AIFeedback />} />
+        <Route path='/AiFeedBack' element={<AIFeedback />} />
       </Route>
       <Route path='*' element={<h1>페이지를 찾을 수 없습니다 404</h1>} />
     </Routes>

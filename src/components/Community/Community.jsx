@@ -4,7 +4,52 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function Community() {
-  const [communityPosts, setCommunityPosts] = useState([]);
+  const [communityPosts, setCommunityPosts] = useState([
+    {
+      post_id: 1,
+      author: {
+        username: '의빈',
+        profile_image_url: 'https://i.imgur.com/placeholder1.jpg'
+      },
+      category: 'C',
+      content: '이번 알고리즘 문제 너무 어려운데 혹시 힌트 있나요?',
+      comment_count: 5,
+      created_at: new Date(Date.now() - 30 * 60000).toISOString() // 30분 전
+    },
+    {
+      post_id: 2,
+      author: {
+        username: '현진',
+        profile_image_url: 'https://i.imgur.com/placeholder2.jpg'
+      },
+      category: 'JAVA',
+      content: '백준 골드 달성했습니다! 다들 화이팅하세요~',
+      comment_count: 12,
+      created_at: new Date(Date.now() - 2 * 3600000).toISOString() // 2시간 전
+    },
+    {
+      post_id: 3,
+      author: {
+        username: '휘영',
+        profile_image_url: 'https://i.imgur.com/placeholder3.jpg'
+      },
+      category: 'PYTHON',
+      content: '오늘 스터디 같이 하실 분 계신가요?',
+      comment_count: 3,
+      created_at: new Date(Date.now() - 5 * 3600000).toISOString() // 5시간 전
+    },
+    {
+      post_id: 4,
+      author: {
+        username: '수연',
+        profile_image_url: 'https://i.imgur.com/placeholder4.jpg'
+      },
+      category: 'C',
+      content: 'DP 문제 접근 방법 좀 알려주실 수 있나요?',
+      comment_count: 8,
+      created_at: new Date(Date.now() - 86400000).toISOString() // 1일 전
+    }
+  ]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -42,26 +87,6 @@ function Community() {
       }
     } finally {
       setLoading(false);
-    }
-  };
-
-  // 4. 게시글 삭제
-  const deletePost = async (postId) => {
-    if (!confirm('정말로 이 게시글을 삭제하시겠습니까?')) return;
-    
-    try {
-      const token = localStorage.getItem('token');
-      await axios.delete(`/api/${postId}`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-      
-      alert('게시글이 삭제되었습니다.');
-      fetchPosts();
-    } catch (error) {
-      console.error('게시글 삭제 실패:', error);
-      alert('게시글 삭제에 실패했습니다.');
     }
   };
 
@@ -124,34 +149,26 @@ function Community() {
               <p className={styles.PostContent}>{post.content}</p>
               <div className={styles.PostFooter}>
                 <span>💬 {post.comment_count}</span>
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation(); // 카드 클릭 이벤트 방지
-                    deletePost(post.post_id);
-                  }}
-                  className={styles.DeleteBtn}
-                >
-                  삭제
-                </button>
-              </div>
-              <div className={styles.Pagination}>
-                <button 
-                  onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
-                  disabled={currentPage === 1}
-                >
-                  이전
-                </button>
-                <span>{currentPage} / {totalPages}</span>
-                <button 
-                  onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
-                  disabled={currentPage === totalPages}
-                >
-                  다음
-                </button>
               </div>
             </div>
           ))
         )}
+      </div>
+      
+      <div className={styles.Pagination}>
+        <button 
+          onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+          disabled={currentPage === 1}
+        >
+          이전
+        </button>
+        <span>{currentPage} / {totalPages}</span>
+        <button 
+          onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+          disabled={currentPage === totalPages}
+        >
+          다음
+        </button>
       </div>
     </div>
   );

@@ -159,6 +159,25 @@ function NavBar() {
             
           </NavLink>
 
+          <NavLink 
+            to='/AiFeedBack/'
+            className={({ isActive }) => 
+              isActive ? `${styles.TabItems} ${styles.Active}` : styles.TabItems
+            }>
+              
+            {({ isActive }) => (
+              <>
+                {isActive ? (
+                  <RiUser3Fill size={25} className={styles.TabIcons} />
+                ) : (
+                  <RiUser3Line size={25} className={styles.TabIcons} />
+                )}
+                <p>AI 피드백</p>
+              </>
+            )}
+            
+          </NavLink>
+
           
         </div>
           <div className={styles.NavBarFooter}>

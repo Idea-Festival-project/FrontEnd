@@ -16,7 +16,8 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/login', {
+      const res = await axios.post('http://localhost:8080/api/CodingGo/auth/login',
+      {
         email: email,
         password: password,
       });
